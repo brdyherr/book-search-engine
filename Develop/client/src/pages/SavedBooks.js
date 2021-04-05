@@ -5,14 +5,14 @@ import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap
 import Auth from '../utils/auth';
 
 import { useQuery, useMutation } from '@apollo/react-hooks';
-import { QUERY_ME } from '../utils/mutations';
+import { QUERY_ME } from '../utils/queries';
 import { REMOVE_BOOK } from '../utils/mutations'; 
 
 const SavedBooks = () => {
   const { loading, data } = useQuery(QUERY_ME);
-  const userDate = data?.me || {};
-  const [userData, setUserData] = useState({});
-  cosnt [removeBook, { error }] = useMutation(REMOVE_BOOK);
+  const userData = data?.me || {};
+  // const [userData, setUserData] = useState({});
+  const [removeBook, { error }] = useMutation(REMOVE_BOOK);
 
   // use this to determine if `useEffect()` hook needs to run again
   const userDataLength = Object.keys(userData).length;
