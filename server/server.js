@@ -6,7 +6,7 @@ const path = require('path');
 const { typeDefs, resolvers } = require('./schemas');
 const {authMiddleware} = require('./utils/auth');
 const db = require('./config/connection');
-const { Mongoose } = require('mongoose');
+// const { Mongoose } = require('mongoose');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -28,10 +28,11 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
-
+/*
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
+*/ 
 
 db.once('open', () => {
   app.listen(PORT, () => {
